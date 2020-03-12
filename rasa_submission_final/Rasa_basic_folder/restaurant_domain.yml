@@ -1,0 +1,109 @@
+slots:
+  location:
+    type: text
+  cuisine:
+    type: text
+  price:
+    type: text
+  emailid:
+    type: text
+  loc_avl:
+    type: categorical
+    values:
+    - 1
+    - 0
+  csn_avl:
+    type: categorical
+    values:
+    - 1
+    - 0
+  prc_avl:
+    type: categorical
+    values:
+    - 1
+    - 0
+  sendmail:
+    type: text
+
+entities:
+- location
+- cuisine
+- price
+- emailid
+- sendmail
+
+intents:
+ - greet
+ - affirm
+ - deny
+ - goodbye
+ - thankyou
+ - restaurant_search
+ - email
+
+
+templates:
+  utter_greet:
+    - "Hey there! How may I help you?"
+    - "Hi, How can I help you?"
+    - "Hey, How is it going? How may I help you today?"
+    - "Hello, good to see you!"
+    - "Hi, How are you doing today?"
+    - "Hey, How can I help?"
+  utter_goodbye:
+    - "goodbye :("
+    - "Bye-bye"
+    - "Cya"
+
+  utter_default:
+    - "I didn't understand you, please repeat"
+  utter_do_not_operate:
+    - "We do not operate in that area yet"
+  utter_ask_cuisine: 
+    - text: "what kind of cuisine would you like?\n
+             - Chinese\n
+             - Mexican\n
+             - American\n
+             - Italian\n
+             - South Indian\n
+             - North Indian"
+  utter_ask_howcanhelp:
+    - "how can I help you?"
+  utter_ask_location:
+    - "In what location?"
+  utter_ask_budget: 
+    - text: "What price range are you looking at?\n
+      	    - Less than Rs.300\n
+            - Between Rs.300 and 700\n
+            - More than Rs.700"
+  utter_get_email:
+    - "Please provide your email id"
+  utter_ask_sendmail: 
+    - "Do You need details of the top 10 restaurants on email? (yes/no)"  
+  utter_sent_email:
+    - "We have emailed you the list of restaurants."
+    - "Please check your mailbox, your list of restaurants is ready to view."
+  utter_restart:
+    - "Please visit us again"
+    
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_do_not_operate
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_ask_budget
+- utter_ask_sendmail
+- utter_get_email
+- utter_sent_email
+- utter_restart
+- actions.ActionSearchRestaurants
+- actions.ValidateLocation
+- actions.ValidateCuisine
+- actions.ValidatePrice
+- actions.SendMail
+- actions.GetMail
+- actions.ActionSlotReset
+
